@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | News homepage</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							softOrange: '#E9AB53',
+							softRed: '#F15E50',
+							primaryWhite: '#FFFDFA',
+							grayishBlue: '#C5C6CE',
+							darkGrayishBlue: '#5D5F79',
+							veryDarkBlue: '#00001A',
+						},
+					},
+				},
+			}
+		</script>
+	</head>
+	<body class="bg-primaryWhite">
+		<!-- header -->
+		<header id="app">
+			<nav
+				class="container mx-auto px-7 flex items-center justify-between mt-10"
+			>
+				<a href="">
+					<img src="./assets/images/logo.svg" alt="" />
+				</a>
+				<div class="hidden md:flex space-x-14">
+					<a href="#" class="text-grayishBlue text-lg hover:text-veryDarkBlue"
+						>Home</a
+					>
+					<a href="#" class="text-grayishBlue text-lg hover:text-veryDarkBlue"
+						>News</a
+					>
+					<a href="#" class="text-grayishBlue text-lg hover:text-veryDarkBlue"
+						>Popular</a
+					>
+					<a href="#" class="text-grayishBlue text-lg hover:text-veryDarkBlue"
+						>Trending</a
+					>
+					<a href="#" class="text-grayishBlue text-lg hover:text-veryDarkBlue"
+						>Categories</a
+					>
+				</div>
+				<div class="md:hidden">
+					<img @click="toggleOpen" :src="appImage" alt="" />
+				</div>
+			</nav>
+		</header>
+		<section class="mx-auto container px-7 mt-7">
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+				<div class="md:col-span-2">
+					<img
+						class="hidden md:block"
+						src="/assets/images/image-web-3-desktop.jpg"
+						alt=""
+					/>
+					<img
+						class="md:hidden"
+						src="/assets/images/image-web-3-mobile.jpg"
+						alt=""
+					/>
+					<div
+						class="flex flex-col space-y-4 md:space-y-0 md:flex-row mt-6 space-x-4 items-center"
+					>
+						<h1 class="md:w-1/2 text-veryDarkBlue text-6xl font-bold">
+							The Bright Future of Web 3.0?
+						</h1>
+						<div class="md:w-1/2 flex flex-col space-y-7">
+							<p class="text-xl text-darkGrayishBlue">
+								We dive into the next evolution of the web that claims to put
+								the power of the platforms back into the hands of the people.
+								But is it really fulfilling its promise?
+							</p>
+							<div
+								class="text-primaryWhite text-center rounded-sm bg-softRed w-[60%] p-4 uppercase text-xl"
+							>
+								Read More
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="md:col-span-1 bg-veryDarkBlue flex flex-col space-y-8 p-6">
+					<h2 class="text-softOrange text-3xl font-bold">New</h2>
+					<div>
+						<h3
+							class="text-primaryWhite font-semibold text-lg mb-2 cursor-pointer"
+						>
+							Hydrogen Vs Electric Cars
+						</h3>
+						<p class="text-md text-grayishBlue">
+							Will hydrogen-fueled cars ever catch up to EVs?
+						</p>
+						<hr class="mt-6" />
+					</div>
+					<div>
+						<h3
+							class="text-primaryWhite font-semibold text-lg mb-2 cursor-pointer"
+						>
+							The Downsides of AI Artistry
+						</h3>
+						<p class="text-md text-grayishBlue">
+							What are the possible adverse effects of on-demand AI image
+							generation?
+						</p>
+						<hr class="mt-6" />
+					</div>
+					<div>
+						<h3
+							class="text-primaryWhite font-semibold text-lg mb-2 cursor-pointer"
+						>
+							Is VC Funding Drying Up?
+						</h3>
+						<p class="text-md text-grayishBlue">
+							Private funding by VC firms is down 50% YOY. We take a look at
+							what that means.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- article section -->
+		<section class="mx-auto container my-16 px-7">
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+				<div class="flex">
+					<img src="./assets/images/image-retro-pcs.jpg" class="h-44" alt="" />
+					<div class="flex flex-col px-7 space-y-2">
+						<h2 class="text-4xl text-grayishBlue font-bold">01</h2>
+						<h4 class="text-veryDarkBlue font-bold text-xl">
+							Reviving Retro Pcs
+						</h4>
+						<p class="text-xl text-grayishBlue font-normal">
+							What happens when old PCs are given modern upgrades?
+						</p>
+					</div>
+				</div>
+				<div class="flex">
+					<img
+						src="./assets/images/image-top-laptops.jpg"
+						class="h-44"
+						alt=""
+					/>
+					<div class="flex flex-col px-7 space-y-2">
+						<h2 class="text-4xl text-grayishBlue font-bold">02</h2>
+						<h4 class="text-veryDarkBlue font-bold text-xl">
+							Top 10 Laptops of 2022
+						</h4>
+						<p class="text-xl text-grayishBlue font-normal">
+							Our best picks for various needs and budgets
+						</p>
+					</div>
+				</div>
+				<div class="flex">
+					<img
+						src="./assets/images/image-gaming-growth.jpg"
+						class="h-44"
+						alt=""
+					/>
+					<div class="flex flex-col px-7 space-y-2">
+						<h2 class="text-4xl text-grayishBlue font-bold">03</h2>
+						<h4 class="text-veryDarkBlue font-bold text-xl">
+							The Growth of Gaming
+						</h4>
+						<p class="text-xl text-grayishBlue font-normal">
+							How the pandemic has sparked fresh opportunities
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Home New Popular Trending Categories The Bright Future of Web 3.0? We dive
+		into the next evolution of the web that claims to put the power of the
+		platforms back into the hands of the people. But is it really fulfilling its
+		promise? Read more New Hydrogen VS Electric Cars Will hydrogen-fueled cars
+		ever catch up to EVs? The Downsides of AI Artistry What are the possible
+		adverse effects of on-demand AI image generation? Is VC Funding Drying Up?
+		Private funding by VC firms is down 50% YOY. We take a look at what that
+		means. 01 Reviving Retro PCs What happens when old PCs are given modern
+		upgrades? 02 Top 10 Laptops of 2022 Our best picks for various needs and
+		budgets. 03 The Growth of Gaming How the pandemic has sparked fresh
+		opportunities. -->
+
+		<div class="attribution">
+			Challenge by
+			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Your Name Here</a>.
+		</div>
+		<script type="module">
+			const { createApp } = Vue
+
+			createApp({
+				data() {
+					return {
+						openApp: false,
+					}
+				},
+				methods: {
+					toggleOpen() {
+						this.openApp = !this.openApp
+					},
+				},
+				computed: {
+					appImage() {
+						if (!this.openApp) {
+							return '/assets/images/icon-menu.svg'
+						} else {
+							return '/assets/images/icon-menu-close.svg'
+						}
+					},
+				},
+			}).mount('#app')
+		</script>
+	</body>
+</html>
